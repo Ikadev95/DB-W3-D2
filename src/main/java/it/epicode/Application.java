@@ -62,6 +62,8 @@ public class Application {
 
         eventoDAO.save(e1);
 
+        em.close();
+        emf.close();
 
 
     }
