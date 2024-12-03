@@ -46,5 +46,23 @@ public class Application {
 
         eventoDAO.insertAll(lista);
 
+        Evento e = eventoDAO.getById(3L);
+        System.out.println(e);
+        eventoDAO.delete(3L);
+
+        Evento e1 = new Evento();
+        e1.setTitolo(faker.book().title());
+        e1.setDescrizione(faker.lorem().sentence());
+        e1.setDataEvento(faker.date().between(start, end)
+                .toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+        e1.setNumeroMaxPartecipanti(faker.random().nextInt(10, 100));
+        e1.setTipoEvento(TipoEventoEnum.PRIVATO);
+        eventoDAO.save(e1);
+
+
+        eventoDAO.save(e1);
+
+
+
     }
 }
